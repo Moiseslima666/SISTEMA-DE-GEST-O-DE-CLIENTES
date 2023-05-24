@@ -48,8 +48,10 @@ int main() {
 int menu(Cliente * clientes){
 	int opicao;
 	printf("\t\t\t\t=================================================\n\n");
-	printf("\t\t\t\t\t####### Gestão de Clientes #######\n\n");
+	printf("\t\t\t\t\t####### GESTÃO DE CLIENTES  #######\n\n");
     printf("\t\t\t\t=================================================\n\n\n\n");
+	printf("\n\n\n===== SEJA BEM-VINDO A NOSSA CENTRAL DE CADASTRO DE CLIENTES =====");
+	
 	printf("\t1 - -= cadastrar cliente =-\n");
     printf("\t2 - -= lista de todos os clientes cadastrados =-\n");
     printf("\t3 - -= Pesquisar cliente por ID =-\n");
@@ -66,5 +68,65 @@ int menu(Cliente * clientes){
 	return opicao;
 }
 
+void escolha(int opicao1, Cliente *clientes){
+	
+	switch (opicao1)
+	    case 1:
+	    	printf("========## CADASTRO DE CLIENTES ##=======");
+	    	
+	    	
+	    	break;
+	    case 2:
+		    printf("=========** LISTA DE CLIENTES CADASTRADOS **=========");
+			
+			
+			break;
+		case 3:
+		   printf("=========$$ PESQUISAR CLIENTES POR ID $$========");
+		   
+		   
+		   break;
+		case 0:
+		   printf("========== O SEU SISTEMA FOI ENCERRADO COM SUCESSO!!!! ==========");
+		   
+		   break;
+		   default;
+		       printf("*** DESCULPE, A OPIÇÃO ESCOLHIDA ESTA INVALIDA!! ***");
+			   printf("*** TENTE NOVAMENTE OUTRA OPÇÃO ***")		
+    };
+}
 
+void cabecario(){
+	printf("\t\t\t\t\t==============================================\n");
+	printf("\t\t\t\t\t=======#### SISTEMA DE CADASTRO DE CLIENTES ####=======\n");
+	printf("\t\t\t\t\t==============================================\n"
+	printf("\n\n")
+	printf("\t\t\t\t\t==============================================\n");
+	printf("\t\t\t\t\t SEJA BEM VINDO AO NOSSO SISTEMA DE CADASTRO.\n PREENÇA CORRETAMENTA AS FICHAS A SEGUIR PARA EVITAR QUALQUER TIPO DE TRANSTORNO\n OBRIGADO PELA ATENÇÃO\n");
+	printf("\t\t\t\t\t==============================================\n"
+
+}
+
+void cadastro(Cliente *clientes){
+	char opicao
+	
+	fflush(stdin);
+	printf("\t=====- NOME -=====: ");
+	gets(clientes[code].nome);
+	
+	fflush(stdin);
+	printf("\t=====- CPF DO CLIENTE -=====: ");
+	gets(clientes[code].cpf);
+	
+	fflush(stdin);
+	printf("\t=====- IDADE -=====: ");
+	gets(clientes[code].idade);
+	
+	printf("\t\t\t=====================================================\n");
+	printf("\t\t\t======= CADASTRAR ENDEREÇLO =======\n");
+	printf("\t\t\t=====================================================\n"
+	
+	
+	
+}
 

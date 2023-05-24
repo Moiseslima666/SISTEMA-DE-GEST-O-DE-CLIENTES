@@ -45,32 +45,9 @@ int main() {
 	
 }
 
-int menu(Cliente * clientes){
-	int opicao;
-	printf("\t\t\t\t=================================================\n\n");
-	printf("\t\t\t\t\t####### GEST√O DE CLIENTES  #######\n\n");
-    printf("\t\t\t\t=================================================\n\n\n\n");
-	printf("\n\n\n===== SEJA BEM-VINDO A NOSSA CENTRAL DE CADASTRO DE CLIENTES =====");
-	
-	printf("\t1 - -= cadastrar cliente =-\n");
-    printf("\t2 - -= lista de todos os clientes cadastrados =-\n");
-    printf("\t3 - -= Pesquisar cliente por ID =-\n");
-    printf("\t0 - -= Sair =-\n\n");
-    printf("Escolha uma opÁ„o: ");
-    scanf("%d", &opicao);
-    
-	system("cls");
-	
-	escolha(opicao, clientes);
-	
-	system("pause");
-	
-	return opicao;
-}
-
 void escolha(int opicao1, Cliente *clientes){
 	
-	switch (opicao1)
+	switch(opicao1){
 	    case 1:
 	    	printf("========## CADASTRO DE CLIENTES ##=======");
 	    	
@@ -90,25 +67,48 @@ void escolha(int opicao1, Cliente *clientes){
 		   printf("========== O SEU SISTEMA FOI ENCERRADO COM SUCESSO!!!! ==========");
 		   
 		   break;
-		   default;
-		       printf("*** DESCULPE, A OPI«√O ESCOLHIDA ESTA INVALIDA!! ***");
-			   printf("*** TENTE NOVAMENTE OUTRA OP«√O ***")		
-    };
-}
+		default:
+		    printf("*** DESCULPE, A OPI√á√ÉO ESCOLHIDA ESTA INVALIDA!! ***");
+			printf("*** TENTE NOVAMENTE OUTRA OP√á√ÉO ***");
+	}
+    }
 
 void cabecario(){
 	printf("\t\t\t\t\t==============================================\n");
 	printf("\t\t\t\t\t=======#### SISTEMA DE CADASTRO DE CLIENTES ####=======\n");
-	printf("\t\t\t\t\t==============================================\n"
-	printf("\n\n")
 	printf("\t\t\t\t\t==============================================\n");
-	printf("\t\t\t\t\t SEJA BEM VINDO AO NOSSO SISTEMA DE CADASTRO.\n PREEN«A CORRETAMENTA AS FICHAS A SEGUIR PARA EVITAR QUALQUER TIPO DE TRANSTORNO\n OBRIGADO PELA ATEN«√O\n");
-	printf("\t\t\t\t\t==============================================\n"
+	printf("\n\n");
+	printf("\t\t\t\t\t==============================================\n");
+	printf("\t\t\t\t\t SEJA BEM VINDO AO NOSSO SISTEMA DE CADASTRO.\n PREEN√áA CORRETAMENTA AS FICHAS A SEGUIR PARA EVITAR QUALQUER TIPO DE TRANSTORNO\n OBRIGADO PELA ATEN√á√ÉO\n");
+	printf("\t\t\t\t\t==============================================\n");
 
 }
+int menu(Cliente * clientes){
+	int opicao;
+	printf("\t\t\t\t=================================================\n\n");
+	printf("\t\t\t\t\t####### GEST√ÉO DE CLIENTES  #######\n\n");
+    printf("\t\t\t\t=================================================\n\n\n\n");
+	printf("\n\n\n===== SEJA BEM-VINDO A NOSSA CENTRAL DE CADASTRO DE CLIENTES =====");
+	
+	printf("\t1 - -= cadastrar cliente =-\n");
+    printf("\t2 - -= lista de todos os clientes cadastrados =-\n");
+    printf("\t3 - -= Pesquisar cliente por ID =-\n");
+    printf("\t0 - -= Sair =-\n\n");
+    printf("Escolha uma op√ß√£o: ");
+    scanf("%d", &opicao);
+    
+	system("cls");
+	
+	escolha(opicao, clientes);
+	
+	system("pause");
+	
+	return opicao;
+}
+
 
 void cadastro(Cliente *clientes){
-	char opicao
+	char opicao;
 	
 	fflush(stdin);
 	printf("\t=====- NOME -=====: ");
@@ -123,8 +123,8 @@ void cadastro(Cliente *clientes){
 	gets(clientes[code].idade);
 	
 	printf("\t\t\t=====================================================\n");
-	printf("\t\t\t======= CADASTRAR ENDERE«LO =======\n");
-	printf("\t\t\t=====================================================\n"
+	printf("\t\t\t======= CADASTRAR ENDERE√áLO =======\n");
+	printf("\t\t\t=====================================================\n");
 	
 	
 	

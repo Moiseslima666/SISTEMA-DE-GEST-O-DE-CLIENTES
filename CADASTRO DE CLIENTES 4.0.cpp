@@ -2,8 +2,10 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <ctype.h>
+#include <unistd.h>
 
 #define MAX_CLIENTES 200
+
 
 struct Endereco {
     int numero;
@@ -98,25 +100,39 @@ void cadastro() {
         struct Cliente cliente;
         printf("\033[1;36m\t=====- ID DO CLIENTE (NÚMEROS) -=====: \033[0m");
         scanf("%d", &cliente.id);
-        fflush(stdin);
+		
+		sleep(2);
+		printf("\t\t\t\tAguarde...\n");
+		
+		fflush(stdin);
         printf("\033[1;36m\t=====- NOME -=====: \033[0m");
         fgets(cliente.nome, sizeof(cliente.nome), stdin);
-        fflush(stdin);
+        sleep(2);
+		printf("\t\t\t\tAguarde...\n\n");
+		fflush(stdin);
         printf("\033[1;36m\t=====- CPF DO CLIENTE -=====: \033[0m");
         fgets(cliente.CPF, sizeof(cliente.CPF), stdin);
-        fflush(stdin);
+        sleep(2);
+		printf("\t\t\t\tAguarde...\n\n");
+		fflush(stdin);
         printf("\033[1;36m\t=====- IDADE -=====: \033[0m");
         scanf("%d", &cliente.idade);
         fflush(stdin);
         printf("\033[1;36m\t=====- DATA DE NASCIMENTO (dd/mm/aaaa) -=====: \033[0m");
         scanf("%d", &cliente.datadenascimento);
-        fflush(stdin);
+        sleep(2);
+		printf("\t\t\t\tAguarde...\n\n");
+		fflush(stdin);
         printf("\033[1;36m\t=====- EMAIL -=====: \033[0m");
         fgets(cliente.email, sizeof(cliente.email), stdin);
-        fflush(stdin);
+        sleep(2);
+		printf("\t\t\t\tAguarde...\n\n");
+		fflush(stdin);
         printf("\033[1;36m\t=====- NÚMERO TELEFONICO ( (75) 91234-5678 ) -=====: \033[0m");
         scanf("%d", &cliente.telefone);
-        printf("\n\033[1;33m\t\t\t=====================================================\033[0m\n");
+        sleep(4);
+		printf("\t\t\t\tAguarde...\n\n");
+		printf("\n\033[1;33m\t\t\t=====================================================\033[0m\n");
         printf("\033[1;33m\t\t\t======= CADASTRAR ENDEREÇO =======\033[0m\n");
         printf("\033[1;33m\t\t\t=====================================================\033[0m\n\n");
         printf("\033[1;36m\t====- LOGRADOURO -====: \033[0m");
@@ -125,16 +141,24 @@ void cadastro() {
         printf("\033[1;36m\t====- NÚMERO DA CASA -====: \033[0m");
         scanf("%d", &cliente.endereco.numero);
         fflush(stdin);
-        printf("\033[1;36m\t====- CEP -====: \033[0m");
+        sleep(2);
+		printf("\t\t\t\tAguarde...\n\n");
+		printf("\033[1;36m\t====- CEP -====: \033[0m");
         scanf("%d", &cliente.endereco.CEP);
         fflush(stdin);
-        printf("\033[1;36m\t====- BAIRRO -====: \033[0m");
+        sleep(2);
+		printf("\t\t\t\tAguarde...\n\n");
+		printf("\033[1;36m\t====- BAIRRO -====: \033[0m");
         fgets(cliente.endereco.bairro, sizeof(cliente.endereco.bairro), stdin);
         fflush(stdin);
-        printf("\033[1;36m\t====- CIDADE -====: \033[0m");
+        sleep(2);
+		printf("\t\t\t\tAguarde...\n\n");
+		printf("\033[1;36m\t====- CIDADE -====: \033[0m");
         fgets(cliente.endereco.cidade, sizeof(cliente.endereco.cidade), stdin);
         fflush(stdin);
-        printf("\033[1;36m\t====- UF -====: \033[0m");
+        sleep(2);
+		printf("\t\t\t\tAguarde...\n\n");
+		printf("\033[1;36m\t====- UF -====: \033[0m");
         fgets(cliente.endereco.UF, sizeof(cliente.endereco.UF), stdin);
         clientes[totalclientes] = cliente;
         totalclientes++;
@@ -166,7 +190,9 @@ void listadeclientes() {
     printf("\033[1;36m\t\t\t=======- MAIS INFORMAÇÕES? -========= (S/N): \033[0m");
     scanf(" %c", &op);
     system("cls");
-    if (toupper(op) == 'S') {
+     sleep(5);
+		printf("\t\t\t\t====- CARREGANDO -===...\n\n");
+	if (toupper(op) == 'S') {
         printf("\033[1;36mINFORME O ID DO CLIENTE: \033[0m");
         scanf("%d", &cod);
         printf("%d - %s\n", cod, clientes[cod].nome);

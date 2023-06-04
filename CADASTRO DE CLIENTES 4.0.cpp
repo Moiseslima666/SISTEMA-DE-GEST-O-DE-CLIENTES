@@ -232,12 +232,13 @@ void listadeclientes() {
 
 void pesquisarclienteid() {
     int id;
-    printf("\033[1;36m\t\t\t\t===== INFORME O ID DO CLIENTE ====: \033[0m");
+    printf("\033[1;36m\t\t\t\t===== INFORME O ID DO CLIENTE ====: \033[0m\n\n");
     scanf("%d", &id);
-    printf("\033[1;33m==============================================================\033[0m\n");
-    printf("\033[1;33m===================- INFORMAÇÕES DO CLIENTE -===================!\033[0m\n");
-    printf("\033[1;33m==============================================================\033[0m\n");
-    printf("\n%d - %s\n", id, clientes[id].nome);
+    printf("\t\t\t\t\t\033[1;33m==============================================================\033[0m\n");
+    printf("\t\t\t\t\t\033[1;33m===================- INFORMAÇÕES DO CLIENTE -===================!\033[0m\n");
+    printf("\t\t\t\t\t\033[1;33m==============================================================\033[0m\n\n\n");
+
+	printf("\n%d - %s\n", id, clientes[id].nome);
     printf("\n\033[1;32m\t===- NOME -===: %s\033[0m\n", clientes[id].nome);
 	printf("\n\033[1;32m\t===- CPF -===: %s\033[0m", clientes[id].CPF);
     printf("\n\033[1;32m\t===- IDADE -===: %d\033[0m\n", clientes[id].idade);
@@ -252,6 +253,8 @@ void pesquisarclienteid() {
     printf("\n\033[1;32m\t===- UF -===: %s\033[0m\n", clientes[id].endereco.UF);
     printf("\n\033[1;33m==============================================================\033[0m\n");
     return;
-}
+    }
   
+    
+
 

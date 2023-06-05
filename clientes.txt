@@ -1,0 +1,21 @@
+Nome: marcos
+
+CPF: 0923558
+
+Idade: 19
+Data de Nascimento: ƒš»û
+Email: marcosweslley
+
+Cor: n
+Sexo: m
+Telefone: 7598231
+CEP: 2332
+Logradouro: casa
+
+Número: 11
+Bairro: centro
+
+Cidade: angras
+
+UF: ba
+=========================================================================

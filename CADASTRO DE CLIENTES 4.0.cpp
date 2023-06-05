@@ -52,23 +52,22 @@ int main() {
 
 int menu() {
     int opcao;
-    printf("========================================================================================================================================================================\n");
-	fflush(stdin);
-	printf("\t\t\t\t\t\t\t\t|=================================================|\n\n");
-    printf("\t\t\t\t\t\t\t\t|\t|________GESTÃO DE CLIENTES_______|       |     \n\n");
-    printf("\t\t\t\t\t\t\t\t|=================================================|\n\n\n\n");
-    printf("========================================================================================================================================================================\n");
-	printf("\n\n\n\t\t\t\t\t\t\t===== SEJA BEM-VINDO A NOSSA CENTRAL DE CADASTRO DE CLIENTES =====\n\n\n\n\n");
-    fflush(stdin);
-	printf("\t\t\t\t\t==========================================================================================|\n\n");
-	printf("\t\t\t\t\t|\t\t\t| (1)- -= CADASTRAR CLIENTE =-                                    |\n\n");
-    printf("\t\t\t\t\t|\t\t\t| (2)- -= LISTA DE TODOS OS CLIENTES CADASTRADOS =-               |\n\n");
-    printf("\t\t\t\t\t|\t\t\t| (3)- -= PESQUISAR CLIENTE POR ID =-                             |\n\n");
-    printf("\t\t\t\t\t|\t\t\t| (0)- -= Sair =-                                                 |\n\n");
-    printf("\t\t\t\t\t==========================================================================================\n\n\n\n");
-	
-	printf("_______¨¨¨¨¨¨ESCOLHA UMA DESSAS OPIÇÕES¨¨¨¨¨¨_______: ");
+    printf("\n\t\t\t\t-----------------------------------------------------");
+    printf("\n\t\t\t\t                  GESTÃO DE CLIENTES                  ");
+    printf("\n\t\t\t\t-----------------------------------------------------\n\n\n");
+    printf("\n\t\t\t\tSEJA BEM-VINDO A NOSSA CENTRAL DE CADASTRO DE CLIENTES!\n\n");
+    
+    printf("\n\n\t\t\t\t\t-------------------------------");
+    printf("\n\t\t\t\t\t---    ESCOLHA UMA OPÇÃO    ---");
+    printf("\n\t\t\t\t\t-------------------------------");
+    printf("\n\t\t\t\t\t 1 - CADASTRAR CLIENTE       ");
+    printf("\n\t\t\t\t\t 2 - LISTA DE CLIENTES CADASTRADOS");
+    printf("\n\t\t\t\t\t 3 - PESQUISAR CLIENTE POR ID");
+	printf("\n\t\t\t\t\t 0 - SAIR                    ");
+    printf("\n\t\t\t\t\t-----------------------------");
+    printf("\n\t\t\t\t\tESCOLHA A OPÇÃO DESEJADA: ");
     scanf("%d", &opcao);
+    
     system("cls");
     escolha(opcao); 
     system("pause");
@@ -255,7 +254,7 @@ void pesquisarclienteid() {
     return;
     
 	}
-  contt......
+
     
 
 

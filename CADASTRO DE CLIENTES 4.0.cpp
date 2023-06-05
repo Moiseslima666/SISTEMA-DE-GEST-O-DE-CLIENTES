@@ -55,7 +55,7 @@ int menu() {
     printf("\n\t\t\t\t-----------------------------------------------------");
     printf("\n\t\t\t\t                  GESTÃO DE CLIENTES                  ");
     printf("\n\t\t\t\t-----------------------------------------------------\n\n\n");
-    printf("\n\t\t\t\tSEJA BEM-VINDO A NOSSA CENTRAL DE CADASTRO DE CLIENTES!\n\n");
+    printf("\n\t\t\t\t- SEJA BEM-VINDO A NOSSA CENTRAL DE CADASTRO DE CLIENTES! -\n\n");
     
     printf("\n\n\t\t\t\t\t-------------------------------");
     printf("\n\t\t\t\t\t---    ESCOLHA UMA OPÇÃO    ---");
@@ -69,8 +69,11 @@ int menu() {
     scanf("%d", &opcao);
     
     system("cls");
+    
     escolha(opcao); 
+    
     system("pause");
+    
     return opcao;
 }
 
@@ -113,79 +116,88 @@ void escolha(int opcao) {
 void cadastro() {
     if (totalclientes < MAX_CLIENTES) {
         struct Cliente cliente;
-        printf("\033[1;36m\t=====- ID DO CLIENTE (NÚMEROS) -=====: \033[0m");
+        printf("\033[1;36m\t ID DO CLIENTE (NÚMEROS): \033[0m");
         scanf("%d", &cliente.id);
-		
-		sleep(1);
-		printf("\t\t\t\t==- Aguarde... -==\n");
-		
 		fflush(stdin);
-        printf("\033[1;36m\t=====- NOME -=====: \033[0m");
+		sleep(1);
+		printf("\t\tAguarde...\n\n");
+		fflush(stdin);
+        printf("\033[1;36m\tNOME: \033[0m");
         fgets(cliente.nome, sizeof(cliente.nome), stdin);
         sleep(1);
-		printf("\t\t\t\tAguarde...\n\n");
+		printf("\t\tAguarde...\n\n");
 		fflush(stdin);
-        printf("\033[1;36m\t=====- CPF DO CLIENTE -=====: \033[0m");
+        printf("\033[1;36m\tCPF DO CLIENTE: \033[0m");
         fgets(cliente.CPF, sizeof(cliente.CPF), stdin);
         sleep(1);
-		printf("\t\t\t\tAguarde...\n\n");
+		printf("\t\tAguarde...\n\n");
 		fflush(stdin);
-        printf("\033[1;36m\t=====- IDADE -=====: \033[0m");
+        printf("\033[1;36m\tIDADE: \033[0m");
         scanf("%d", &cliente.idade);
         fflush(stdin);
-        printf("\033[1;36m\t=====- DATA DE NASCIMENTO (dd/mm/aaaa) -=====: \033[0m");
+        sleep(1);
+		printf("\t\tAguarde...\n\n");
+        fflush(stdin);
+        printf("\033[1;36m\tDATA DE NASCIMENTO (dd/mm/aaaa): \033[0m");
         scanf("%d", &cliente.datadenascimento);
+        fflush(stdin);
         sleep(1);
-		printf("\t\t\t\tAguarde...\n\n");
+		printf("\t\tAguarde...\n\n");
 		fflush(stdin);
-        printf("\033[1;36m\t=====- EMAIL -=====: \033[0m");
+        printf("\033[1;36m\tEMAIL: \033[0m");
         fgets(cliente.email, sizeof(cliente.email), stdin);
+        fflush(stdin);
         sleep(1);
-		printf("\t\t\t\tAguarde...\n\n");
+		printf("\t\tAguarde...\n\n");
 		fflush(stdin);
-        printf("\033[1;36m\t=====- NÚMERO TELEFONICO ( (75) 91234-5678 ) -=====: \033[0m");
+        printf("\033[1;36m\tNÚMERO TELEFONICO EX:(DDD) 91234-5678 ): \033[0m");
         scanf("%d", &cliente.telefone);
+        fflush(stdin);
         sleep(4);
-		printf("\t\t\t\tAguarde...\n\n");
+		printf("\t\tAguarde...\n\n");
 		system("cls");
 		printf("\n\033[1;33m\t\t\t=====================================================\033[0m\n");
-        printf("\033[1;33m\t\t\t======= CADASTRAR ENDEREÇO =======\033[0m\n");
+        printf("\033[1;33m\t\t\t=====             CADASTRAR ENDEREÇO            =====\033[0m\n");
         printf("\033[1;33m\t\t\t=====================================================\033[0m\n\n");
         fflush(stdin);
-		printf("\033[1;36m\t====- LOGRADOURO -====: \033[0m");
+		printf("\033[1;36m\t\t\tLOGRADOURO: \033[0m");
         fgets(cliente.endereco.logradouro, sizeof(cliente.endereco.logradouro), stdin);
         fflush(stdin);
-        printf("\033[1;36m\t====- NÚMERO DA CASA -====: \033[0m");
+        sleep(1);
+		printf("\t\t\tAguarde...\n\n");
+        printf("\033[1;36m\t\t\tNÚMERO DA CASA: \033[0m");
         scanf("%d", &cliente.endereco.numero);
         fflush(stdin);
         sleep(1);
-		printf("\t\t\t\tAguarde...\n\n");
-		printf("\033[1;36m\t====- CEP -====: \033[0m");
+		printf("\t\t\tAguarde...\n\n");
+		printf("\033[1;36m\t\t\tCEP: \033[0m");
         scanf("%d", &cliente.endereco.CEP);
         fflush(stdin);
         sleep(1);
-		printf("\t\t\t\tAguarde...\n\n");
-		printf("\033[1;36m\t====- BAIRRO -====: \033[0m");
+		printf("\t\t\tAguarde...\n\n");
+		printf("\033[1;36m\t\t\tBAIRRO: \033[0m");
         fgets(cliente.endereco.bairro, sizeof(cliente.endereco.bairro), stdin);
         fflush(stdin);
         sleep(1);
-		printf("\t\t\t\tAguarde...\n\n");
-		printf("\033[1;36m\t====- CIDADE -====: \033[0m");
+		printf("\t\t\tAguarde...\n\n");
+		printf("\033[1;36m\t\t\tCIDADE: \033[0m");
         fgets(cliente.endereco.cidade, sizeof(cliente.endereco.cidade), stdin);
         fflush(stdin);
         sleep(1);
-		printf("\t\t\t\tAguarde...\n\n");
-		printf("\033[1;36m\t====- UF -====: \033[0m");
+		printf("\t\t\tAguarde...\n\n");
+		printf("\033[1;36m\t\t\tUF: \033[0m");
         fgets(cliente.endereco.UF, sizeof(cliente.endereco.UF), stdin);
+        fflush(stdin);
+        printf("\n\n");
         clientes[totalclientes] = cliente;
         totalclientes++;
-        printf("\033[1;33m==============================================================\033[0m\n");
-        printf("\033[1;33m=====- OBRIGADO O CLIENTE FOI CADASTRADO COM SUCESSO -=====\033[0m\n");
-        printf("\033[1;33m==============================================================\033[0m\n");
+        printf("\033[1;33m\t\t\t==============================================================\033[0m\n");
+        printf("\033[1;33m\t\t\t=====   OBRIGADO O CLIENTE FOI CADASTRADO COM SUCESSO    =====\033[0m\n");
+        printf("\033[1;33m\t\t\t==============================================================\033[0m\n");
     } else {
-        printf("\033[1;33m==============================================================\033[0m\n");
-        printf("\033[1;33m====- INFELIZMENTE O NUMERO DE CLIENTES FOI ATINGIDO -====.\033[0m\n");
-        printf("\033[1;33m==============================================================\033[0m\n");
+        printf("\033[1;33m\t\t\t==============================================================\033[0m\n");
+        printf("\033[1;33m\t\t\t====    INFELIZMENTE O NUMERO DE CLIENTES FOI ATINGIDO    ====\033[0m\n");
+        printf("\033[1;33m\t\t\t==============================================================\033[0m\n");
     }
 }
 

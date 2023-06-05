@@ -257,7 +257,7 @@ void listadeclientes() {
     char op;
     int cod;
     if (totalclientes == 0) {
-        printf("\t\t\t\t\t\t\t\n\n\n\n\033[1;33m\t\t\t\t\t\t\t==========- INFELIZMENTE NENHUM CLIENTE FOI CADASTRADO -=========\n\n\n\n\n\n\033[0m\n");
+        printf("\n\n\n\n\033[1;33m\t\t\t==========- INFELIZMENTE NENHUM CLIENTE FOI CADASTRADO -=========\n\n\n\n\n\n\033[0m\n");
         return;
     }
     printf("\033[1;33m\t\t\t==============================================================\033[0m\n");

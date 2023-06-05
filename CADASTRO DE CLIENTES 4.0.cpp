@@ -253,8 +253,9 @@ void pesquisarclienteid() {
     printf("\n\033[1;32m\t===- UF -===: %s\033[0m\n", clientes[id].endereco.UF);
     printf("\n\033[1;33m==============================================================\033[0m\n");
     return;
-    }
-  
+    
+	}
+  contt......
     
 
 

@@ -23,7 +23,7 @@ struct AgendaVisitas{
 
 struct Endereco {
     int numero;
-    int CEP;
+    int CEP[10];
     char logradouro[50];
     char bairro[30];
     char cidade[40];
@@ -163,7 +163,7 @@ void escolha(int opcao){
             avaliacaocliente();
             break;
 		case 0:
-            printf("\033[1;33m========== O SEU SISTEMA FOI ENCERRADO COM SUCESSO!!!! ==========\033[0m\n\n\n");
+            printf("\n\n\n\t\t\t\t\t\033[1;33m========== O SEU SISTEMA FOI ENCERRADO COM SUCESSO!!!! ==========\033[0m\n\n\n");
             break;
         default:
             printf("\033[1;31m*** DESCULPE, A OPÇÃO ESCOLHIDA ESTÁ INVÁLIDA!! ***\033[0m\n");
@@ -387,7 +387,7 @@ void pesquisarclienteCPF(){
        
 
 
- void salvarDados() {
+void salvarDados() {
     FILE *arquivo = fopen("cadastro.txt", "w");
     if (arquivo == NULL) {
         printf("===- ERRO AO ABRIR O ARQUIVO. \n");
@@ -398,7 +398,7 @@ void pesquisarclienteCPF(){
         fprintf(arquivo, "%c\n", clientes[i].CPF);
         fprintf(arquivo, "%s\n", clientes[i].nome);
         fprintf(arquivo, "%d\n", clientes[i].idade);
-        fprintf(arquivo, "%s/%s/%s\n", clientes[i].datadenascimento);
+        fprintf(arquivo, "%s\n", clientes[i].datadenascimento);
         fprintf(arquivo, "%s\n", clientes[i].email);
         fprintf(arquivo, "%s\n", clientes[i].cor);
         fprintf(arquivo, "%s\n", clientes[i].sexo);
@@ -425,7 +425,7 @@ void lerCadastro() {
         fscanf(arquivo, "%c", &clientes[i].CPF);
         fscanf(arquivo, "%s", clientes[i].nome);
         fscanf(arquivo, "%d", &clientes[i].idade);
-        fscanf(arquivo, "%s/%s/%s", clientes[i].datadenascimento);
+        fscanf(arquivo, "%s", clientes[i].datadenascimento);
         fscanf(arquivo, "%s", clientes[i].email);
         fscanf(arquivo, "%c", &clientes[i].cor);
         fscanf(arquivo, "%c", &clientes[i].sexo);

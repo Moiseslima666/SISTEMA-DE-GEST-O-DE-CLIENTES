@@ -5,8 +5,6 @@
 #include <unistd.h>
 #include <string.h>
 
-
-
 #define MAX_CLIENTES 200
 
 struct Agenda{
@@ -23,7 +21,7 @@ struct AgendaVisitas{
 
 struct Endereco {
     int numero;
-    char CEP[10];
+    int CEP[10];
     char logradouro[50];
     char bairro[30];
     char cidade[40];
@@ -34,10 +32,10 @@ struct Cliente {
     char nome[50];
     char CPF[15];
     int idade;
-    char telefone[15];
+    char telefone[20];
     char datadenascimento[20]; 
     char email[50];
-    char raca[20];
+    char cor[20];
     char sexo[2];
     struct Endereco endereco;
 };
@@ -54,12 +52,12 @@ void desenho();
 void cadastro();
 void listadeclientes();
 void pesquisarclienteCPF();
-void deletarCliente();
 void salvarDados();
 void criarAgendaVisitas();
 void listarAgendaVisitas();
 void avaliacaocliente();
 void lerCadastro();
+void deletarCliente();
 
 struct Visita visitas[MAX_CLIENTES];
 struct Cliente clientes[MAX_CLIENTES];
@@ -70,16 +68,15 @@ int totalagendas = 0;
 int menu();
 
 int main(){
-    
 	setlocale(LC_ALL, "portuguese");
-    lerCadastro();
-    
+	lerCadastro();
+	
 	int opcao;
-    do {
-        opcao = menu();
-        system("cls");
-    } while (opcao);
-    return 0;
+	do {
+	    opcao = menu();
+	    system("cls");
+	} while (opcao);
+	return 0;
 }
 
 int menu(){
@@ -159,32 +156,32 @@ void escolha(int opcao){
         case 6:
 		    printf("========================================================================================================================================================================\n\n");
             printf("\n\t\t\t\t\t\t\t\t\t\033[1;33m======================================\033[0m\n");
-            printf("\n\t\t\t\t\t\t\t\t\t\033[1;33m========= LISTAR AGENDA DE VISITAS =========\033[0m\n");
+            printf("\n\t\t\t\t\t\t\t\t\t\033[1;33m========= AVALIAÇÃO DO CLIENTE =========\033[0m\n");
             printf("\n\t\t\t\t\t\t\t\t\t\033[1;33m======================================\033[0m\n\n\n");
             printf("========================================================================================================================================================================\n\n");
             avaliacaocliente();
             break;
-        case 7:
-        	printf("========================================================================================================================================================================\n\n");
-        	printf("\n\t\t\t\t\t\t\t\t\t\033[1;33m======================================\033[0m\n");
-        	printf("\n\t\t\t\t\t\t\t\t\t\033[1;33m===== DELETAR CLIENTE =================\033[0m\n");
-        	printf("\n\t\t\t\t\t\t\t\t\t\033[1;33m=======================================\033[0m\n\n\n");
-        	printf("========================================================================================================================================================================\n\n");
-        	deletarCliente();
-        	break;
+            case 7:
+		    printf("========================================================================================================================================================================\n\n");
+            printf("\n\t\t\t\t\t\t\t\t\t\033[1;33m======================================\033[0m\n");
+            printf("\n\t\t\t\t\t\t\t\t\t\033[1;33m========= DELETAR CLIENTE =========\033[0m\n");
+            printf("\n\t\t\t\t\t\t\t\t\t\033[1;33m======================================\033[0m\n\n\n");
+            printf("========================================================================================================================================================================\n\n");
+            deletarCliente();
+            break;
 		case 0:
-            printf("\n\n\n\t\t\t\t\t\033[1;33m========== O SEU SISTEMA FOI ENCERRADO COM SUCESSO!!!! ==========\033[0m\n\n\n");
+            printf("\t\t\t\t\t\n\n\n\033[1;33m========== O SEU SISTEMA FOI ENCERRADO COM SUCESSO!!!! ==========\033[0m\n\n\n");
             break;
         default:
-            printf("\033[1;31m*** DESCULPE, A OP??O ESCOLHIDA EST? INV?LIDA!! ***\033[0m\n");
-            printf("\033[1;31m*** TENTE NOVAMENTE OUTRA OP??O ***\033[0m\n");
+            printf("\033[1;31m*** DESCULPE, A OPÇÃO ESCOLHIDA ESTÁ INVÁLIDA!! ***\033[0m\n");
+            printf("\033[1;31m*** TENTE NOVAMENTE OUTRA OPÇÃO ***\033[0m\n");
     }
 }
 
 void cadastro() {
     if (totalclientes < MAX_CLIENTES) {
         struct Cliente cliente;
-        printf("\033[1;36m\t\t\t CPF DO CLIENTE (N?MEROS): \033[0m");
+        printf("\033[1;36m\t\t\t CPF DO CLIENTE (NÚMEROS): \033[0m");
         scanf("%s", cliente.CPF);
 		fflush(stdin);
 		
@@ -225,8 +222,8 @@ void cadastro() {
 		printf("\t\tAguarde...\n\n");
         
 		fflush(stdin);
-        printf("\033[1;36m\t\t\tRACA: \033[0m");
-        scanf("%s", cliente.raca);
+        printf("\033[1;36m\t\t\tRAÇA: \033[0m");
+        scanf("%s", cliente.cor);
         fflush(stdin);
         
 		sleep(1);
@@ -241,8 +238,8 @@ void cadastro() {
 		printf("\t\tAguarde...\n\n");
 		
 		fflush(stdin);
-        printf("\033[1;36m\t\t\tN?MERO TELEFONICO : \033[0m");
-        scanf("%s", &cliente.telefone);
+        printf("\033[1;36m\t\t\tNÚMERO TELEFONICO : \033[0m");
+        scanf("%d", &cliente.telefone);
         fflush(stdin);
         
 		sleep(1);
@@ -252,18 +249,18 @@ void cadastro() {
 		system("cls");
 		
 		printf("\n\033[1;33m\t\t\t=====================================================\033[0m\n");
-        printf("\033[1;33m\t\t\t=====             CADASTRAR ENDERE?O            =====\033[0m\n");
+        printf("\033[1;33m\t\t\t=====             CADASTRAR ENDEREÇO            =====\033[0m\n");
         printf("\033[1;33m\t\t\t=====================================================\033[0m\n\n");
         
 		fflush(stdin);
 		printf("\033[1;36m\t\t\tLOGRADOURO: \033[0m");
-        scanf("%s", cliente.endereco.logradouro);
+        fgets(cliente.endereco.logradouro, sizeof(cliente.endereco.logradouro), stdin);
         fflush(stdin);
         
 		sleep(1);
 		printf("\t\t\tAguarde...\n\n");
         
-		printf("\033[1;36m\t\t\tN?MERO DA CASA: \033[0m");
+		printf("\033[1;36m\t\t\tNÚMERO DA CASA: \033[0m");
         scanf("%d", &cliente.endereco.numero);
         fflush(stdin);
         
@@ -271,7 +268,7 @@ void cadastro() {
 		printf("\t\t\tAguarde...\n\n");
 		
 		printf("\033[1;36m\t\t\tCEP: \033[0m");
-        scanf("%s", &cliente.endereco.CEP);
+        scanf("%d", &cliente.endereco.CEP);
         fflush(stdin);
         
 		sleep(1);
@@ -285,7 +282,7 @@ void cadastro() {
 		printf("\t\t\tAguarde...\n\n");
 		
 		printf("\033[1;36m\t\t\tCIDADE: \033[0m");
-        scanf("%s", cliente.endereco.cidade);
+        fgets(cliente.endereco.cidade, sizeof(cliente.endereco.cidade), stdin);
         fflush(stdin);
         
 		sleep(1);
@@ -326,13 +323,13 @@ void listadeclientes(){
         printf("\033[1;36m\t\t\tIDADE: \033[0m%d\n", clientes[i].idade);
         printf("\033[1;36m\t\t\tDATA DE NASCIMENTO: \033[0m%s\n", clientes[i].datadenascimento);
         printf("\033[1;36m\t\t\tEMAIL: \033[0m%s", clientes[i].email);
-        printf("\033[1;36m\t\t\traca: \033[0m%s", clientes[i].raca);
+        printf("\033[1;36m\t\t\tRAÇA: \033[0m%s", clientes[i].cor);
         printf("\033[1;36m\t\t\tSEXO: \033[0m%s", clientes[i].sexo);
-        printf("\033[1;36m\t\t\tTELEFONE: \033[0m%s\n", clientes[i].telefone);
-        printf("\033[1;36m\t\t\tENDERE?O:\033[0m\n");
+        printf("\033[1;36m\t\t\tTELEFONE: \033[0m%d\n", clientes[i].telefone);
+        printf("\n\033[1;36m\t\t\tENDEREÇO:\033[0m\n\n\n");
         printf("\033[1;36m\t\t\t\tLOGRADOURO: \033[0m%s", clientes[i].endereco.logradouro);
-        printf("\033[1;36m\t\t\t\tN?MERO DA CASA: \033[0m%d\n", clientes[i].endereco.numero);
-        printf("\033[1;36m\t\t\t\tCEP: \033[0m%s\n", clientes[i].endereco.CEP);
+        printf("\033[1;36m\t\t\t\tNÚMERO DA CASA: \033[0m%d\n", clientes[i].endereco.numero);
+        printf("\033[1;36m\t\t\t\tCEP: \033[0m%d\n", clientes[i].endereco.CEP);
         printf("\033[1;36m\t\t\t\tBAIRRO: \033[0m%s", clientes[i].endereco.bairro);
         printf("\033[1;36m\t\t\t\tCIDADE: \033[0m%s", clientes[i].endereco.cidade);
         printf("\033[1;36m\t\t\t\tESTADO (UF): \033[0m%s", clientes[i].endereco.UF);
@@ -360,7 +357,7 @@ void pesquisarclienteCPF(){
     scanf("%s", cpf);
     fflush(stdin);
     printf("\t\t\t\033[1;33m==============================================================\033[0m\n");
-    printf("\t\t\t\033[1;33m===================- INFORMA??ES DO CLIENTE -===================!\033[0m\n");
+    printf("\t\t\t\033[1;33m===================- INFORMAÇÕES DO CLIENTE -===================!\033[0m\n");
     printf("\t\t\t\033[1;33m==============================================================\033[0m\n\n\n");
 
 
@@ -372,12 +369,12 @@ void pesquisarclienteCPF(){
             printf("\033[1;36m\t\t\tIDADE: \033[0m%d\n", clientes[i].idade);
             printf("\033[1;36m\t\t\tDATA DE NASCIMENTO: \033[0m%s%s/%s", clientes[i].datadenascimento);
             printf("\033[1;36m\t\t\tEMAIL: \033[0m%s", clientes[i].email);
-            printf("\033[1;36m\t\t\tRACA: \033[0m%s", clientes[i].raca);
+            printf("\033[1;36m\t\t\tRAÇA: \033[0m%s", clientes[i].cor);
             printf("\033[1;36m\t\t\tSEXO: \033[0m%s", clientes[i].sexo);
             printf("\033[1;36m\t\t\tTELEFONE: \033[0m%d\n", clientes[i].telefone);
-            printf("\033[1;36m\t\t\tENDERE?O:\033[0m\n");
+            printf("\033[1;36m\t\t\tENDEREÇO:\033[0m\n");
             printf("\033[1;36m\t\t\t\tLOGRADOURO: \033[0m%s", clientes[i].endereco.logradouro);
-            printf("\033[1;36m\t\t\t\tN?MERO DA CASA: \033[0m%d\n", clientes[i].endereco.numero);
+            printf("\033[1;36m\t\t\t\tNÚMERO DA CASA: \033[0m%d\n", clientes[i].endereco.numero);
             printf("\033[1;36m\t\t\t\tCEP: \033[0m%d\n", clientes[i].endereco.CEP);
             printf("\033[1;36m\t\t\t\tBAIRRO: \033[0m%s", clientes[i].endereco.bairro);
             printf("\033[1;36m\t\t\t\tCIDADE: \033[0m%s", clientes[i].endereco.cidade);
@@ -389,95 +386,28 @@ void pesquisarclienteCPF(){
     }
 
     if (!encontrado) {
-    printf("\t\t\t\033[1;33m==============================================================\033[0m\n");
-    printf("\t\t\t\033[1;33m===================- CLIENTE N?O ENCONTRADO -===================!\033[0m\n");
-    printf("\t\t\t\033[1;33m==============================================================\033[0m\n\n\n");
+	    printf("\t\t\t\033[1;33m==============================================================\033[0m\n");
+	    printf("\t\t\t\033[1;33m===================- CLIENTE NÃO ENCONTRADO -===================!\033[0m\n");
+	    printf("\t\t\t\033[1;33m==============================================================\033[0m\n\n\n");
     }
 }
-
-
-
-void deletarCliente(){
-		int num;
-		char meca[50];
-		
-		FILE *arquivo;
-    	int i;
-
-    	arquivo = fopen("clientes.txt", "w");
-
-    	if (arquivo == NULL) {
-        printf("Erro ao abrir o arquivo.\n");
-        return;
-    	}
-		
-		printf("\033[1;36m\t\t\t QUAL CLIENTE VOÇE DESEJA DELETAR? \033[0m\n\n");
-		
-		printf("\t\t\t====- NÚMERO -====: ");
-		scanf("%d", &num);
-		
-		num--;
-		
-		strcpy(clientes[num].nome, "  ");
-		strcpy(clientes[num].CPF, "     ");
-		clientes[num].idade = NULL;
-		strcpy(clientes[num].datadenascimento, "     ");
-		strcpy(clientes[num].email, "   ");
-		strcpy(clientes[num].raca, "    ");
-		strcpy(clientes[num].sexo, "     ");
-		clientes[num].telefone[0] = NULL;
-		clientes[num].endereco.CEP[0] = NULL;
-		strcpy(clientes[num].endereco.logradouro, "     ");
-		clientes[num].endereco.numero = NULL;
-		strcpy(clientes[num].endereco.bairro, "      ");
-		strcpy(clientes[num].endereco.cidade, "   ");
-		strcpy(clientes[num].endereco.UF, "   ");
-		
-		
-		fprintf(arquivo, "\t\t==- NOME: %s\n", clientes[num].nome);
-        fprintf(arquivo, "\t\t==- CPF: %s\n", clientes[num].CPF);
-        fprintf(arquivo, "\t\t==- IDADE: %d\n", clientes[num].idade);
-        fprintf(arquivo, "\t\t==- DATA DE NACSIMENTO: %s\n", clientes[num].datadenascimento);
-        fprintf(arquivo, "\t\t==- EMAIL: %s\n", clientes[num].email);
-        fprintf(arquivo, "\t\t==- RAÇA: %s\n", clientes[num].raca);
-        fprintf(arquivo, "\t\t==- SEXO: %s\n", clientes[num].sexo);
-        fprintf(arquivo, "\t\t==- TELEFONE: %d\n", clientes[num].telefone);
-        fprintf(arquivo, "\t\t==- CEP: %d\n", clientes[num].endereco.CEP);
-        fprintf(arquivo, "\t\t==- LOGRADOURO: %s\n", clientes[num].endereco.logradouro);
-        fprintf(arquivo, "\t\t==- NÚMERO: %d\n", clientes[num].endereco.numero);
-        fprintf(arquivo, "\t\t==- BAIRRO: %s\n", clientes[num].endereco.bairro);
-        fprintf(arquivo, "\t\t==- CIDADE: %s\n", clientes[num].endereco.cidade);
-        fprintf(arquivo, "\t\t==- UF: %s\n", clientes[num].endereco.UF);
-        fprintf(arquivo, "=========================================================================\n");
-		
-		
-		
-		
-		printf("\n\n\n\n\033[1;33m\t\t\t==========- CLIENTE DELETADO COM SUCESSO -=========\n\n\n\n\n\n\033[0m\n");
-		
-		
-
-		system("pause");
-		system("cls");
-		menu();
-	}
        
 
 
 void salvarDados() {
     FILE *arquivo = fopen("cadastro.txt", "w");
     if (arquivo == NULL) {
-        printf("===- ERRO AO ABRIR O ARQUIVO. \n");
+        printf("ERRO AO ABRIR O ARQUIVO.\n");
         return;
     }
 
     for (int i = 0; i < totalclientes; i++) {
-        fprintf(arquivo, "%c\n", clientes[i].CPF);
+        fprintf(arquivo, "%d\n", clientes[i].CPF);
         fprintf(arquivo, "%s\n", clientes[i].nome);
         fprintf(arquivo, "%d\n", clientes[i].idade);
         fprintf(arquivo, "%s\n", clientes[i].datadenascimento);
         fprintf(arquivo, "%s\n", clientes[i].email);
-        fprintf(arquivo, "%s\n", clientes[i].raca);
+        fprintf(arquivo, "%s\n", clientes[i].cor);
         fprintf(arquivo, "%s\n", clientes[i].sexo);
         fprintf(arquivo, "%d\n", clientes[i].telefone);
         fprintf(arquivo, "%s\n", clientes[i].endereco.logradouro);
@@ -499,25 +429,24 @@ void lerCadastro() {
     }
 
     for (int i = 0; i < totalclientes; i++) {
-        fscanf(arquivo, "%c", &clientes[i].CPF);
-        fscanf(arquivo, "%s", clientes[i].nome);
-        fscanf(arquivo, "%d", &clientes[i].idade);
-        fscanf(arquivo, "%s", clientes[i].datadenascimento);
-        fscanf(arquivo, "%s", clientes[i].email);
-        fscanf(arquivo, "%c", &clientes[i].raca);
-        fscanf(arquivo, "%c", &clientes[i].sexo);
-        fscanf(arquivo, "%d", &clientes[i].telefone);
-        fscanf(arquivo, "%s", clientes[i].endereco.logradouro);
-        fscanf(arquivo, "%d", &clientes[i].endereco.numero);
-        fscanf(arquivo, "%d", &clientes[i].endereco.CEP);
-        fscanf(arquivo, "%s", clientes[i].endereco.bairro);
-        fscanf(arquivo, "%s", clientes[i].endereco.cidade);
-        fscanf(arquivo, "%s", clientes[i].endereco.UF);
+        fscanf(arquivo, " %d\n", &clientes[i].CPF);
+        fscanf(arquivo, " %[^\n]\n", clientes[i].nome);
+        fscanf(arquivo, " %d\n", &clientes[i].idade);
+        fscanf(arquivo, " %[^\n]\n", clientes[i].datadenascimento);
+        fscanf(arquivo, " %[^\n]\n", clientes[i].email);
+        fscanf(arquivo, " %[^\n]\n", clientes[i].cor);
+        fscanf(arquivo, " %[^\n]\n", clientes[i].sexo);
+        fscanf(arquivo, " %d\n", &clientes[i].telefone);
+        fscanf(arquivo, " %[^\n]\n", clientes[i].endereco.logradouro);
+        fscanf(arquivo, " %d\n", &clientes[i].endereco.numero);
+        fscanf(arquivo, " %d\n", &clientes[i].endereco.CEP);
+        fscanf(arquivo, " %[^\n]\n", clientes[i].endereco.bairro);
+        fscanf(arquivo, " %[^\n]\n", clientes[i].endereco.cidade);
+        fscanf(arquivo, " %[^\n]\n", clientes[i].endereco.UF);
     }
 
     fclose(arquivo);
 }
-
 void criarAgendaVisitas() {
     if (totalclientes > 0) {
         struct AgendaVisitas agenda;
@@ -538,7 +467,7 @@ void criarAgendaVisitas() {
             scanf("%s", agenda.data);
             fflush(stdin);
 
-            printf("\033[1;36m\t\tHOR?RIO DA VISITA (hh:mm): \033[0m");
+            printf("\033[1;36m\t\tHORÁRIO DA VISITA (hh:mm): \033[0m");
             scanf("%s", agenda.horario);
             fflush(stdin);
 
@@ -548,12 +477,12 @@ void criarAgendaVisitas() {
             printf("\n\033[1;32m\t\t\tAGENDA DE VISITA CRIADA COM SUCESSO!!!\033[0m\n\n\n");
         } else {
             printf("\t\t\t\033[1;33m==============================================================\033[0m\n");
-            printf("\t\t\t\033[1;33m=====================- CPF N?O ENCONTRADO -===================!\033[0m\n");
+            printf("\t\t\t\033[1;33m=====================- CPF NÃO ENCONTRADO -===================!\033[0m\n");
             printf("\t\t\t\033[1;33m==============================================================\033[0m\n\n\n");
         }
     } else {
         printf("\t\t\t\033[1;33m==============================================================\033[0m\n");
-        printf("\t\t\t\033[1;33m===================- CLIENTE N?O ENCONTRADO -===================!\033[0m\n");
+        printf("\t\t\t\033[1;33m===================- CLIENTE NÃO ENCONTRADO -===================!\033[0m\n");
         printf("\t\t\t\033[1;33m==============================================================\033[0m\n\n\n");
     }
 }
@@ -564,12 +493,12 @@ void listarAgendaVisitas() {
             printf("\033[1;36m\tAGENDA DE VISITA %d:\033[0m\n\n", i + 1);
             printf("\033[1;36m\t\tCPF DO CLIENTE: \033[0m%s\n", AgendaVisitas[i].CPF);
             printf("\033[1;36m\t\tDATA DA VISITA: \033[0m%s\n", AgendaVisitas[i].data);
-            printf("\033[1;36m\t\tHOR?RIO DA VISITA: \033[0m%s\n", AgendaVisitas[i].horario);
+            printf("\033[1;36m\t\tHORÁRIO DA VISITA: \033[0m%s\n", AgendaVisitas[i].horario);
             printf("\n");
         }
     } else {
         printf("\t\t\t\033[1;33m==============================================================\033[0m\n");
-        printf("\t\t\t\033[1;33m===============- AGENDA DE VISITA N?O CRIADA -================!\033[0m\n");
+        printf("\t\t\t\033[1;33m===============- AGENDA DE VISITA NÃO CRIADA -================!\033[0m\n");
         printf("\t\t\t\033[1;33m==============================================================\033[0m\n\n\n");
     }
 }
@@ -578,10 +507,10 @@ void avaliacaocliente(){
 	int nota;
 	salvarDados();
 	printf("\t\t\t\033[1;33m==============================================================\033[0m\n");
-    printf("\t\t\t\033[1;33m==================- AVALIA??O DO CLIENTE -====================!\033[0m\n");
+    printf("\t\t\t\033[1;33m==================- AVALIAÇÃO DO CLIENTE -====================!\033[0m\n");
     printf("\t\t\t\033[1;33m==============================================================\033[0m\n\n\n\n");
     
-    printf("\t\t\t\t=====- OL? QUERIDO CLIENTE, EM PESQUISA DE AVALIA??O VOC? PODERIA INSERIR UMA NOTA DE 1 A 10 DE AVALIA??O -=======\n");
+    printf("\t\t\t\t=====- OLÁ QUERIDO CLIENTE, EM PESQUISA DE AVALIAÇÃO VOCÊ PODERIA INSERIR UMA NOTA DE 1 A 10 DE AVALIAÇÃO -=======\n");
     sleep(3);
     printf("\n\t\t\tCARREGANDO...\n\n\n\n");
     
@@ -589,12 +518,69 @@ void avaliacaocliente(){
     scanf("%d", &nota);
     
     if(nota >= 7)
-    	printf("\t\t\t\t\t\n\n\n============- AGRADECEMOS A PREFERENCIA, MUITO OBRIGADO PRO CONTAR COM O NOSSO SERVI?O -===============\n\n\n");
+    	printf("\t\t\t\t\t\n\n\n============- AGRADECEMOS A PREFERENCIA, MUITO OBRIGADO PRO CONTAR COM O NOSSO SERVIÇO -===============\n\n\n");
     else
 	   printf("\t\t\t\t\t\n\n\n==============- DESCULPA, IREMOS FAZER O MAXIMO PARA QUE NO PROXIMO CADASTRO SEJA MELHOR!! -====================\n\n\n\n");	
-	   
-	return;
+	   return;
 }
 
+void deletarCliente(){
+	int num;
+	char meca[50];
+	
+	FILE *arquivo;
+	int i;
+
+	arquivo = fopen("clientes.txt", "w");
+
+	if (arquivo == NULL) {
+    printf("Erro ao abrir o arquivo.\n");
+    return;
+	}
+	
+	printf("\033[1;36m\t\t\t QUAL CLIENTE VOÇE DESEJA DELETAR? \033[0m\n\n");
+	
+	printf("\t\t\t====- NÚMERO -====: ");
+	scanf("%d", &num);
+	
+	num--;
+	
+	strcpy(clientes[num].nome, "  ");
+	strcpy(clientes[num].CPF, "     ");
+	clientes[num].idade = NULL;
+	strcpy(clientes[num].datadenascimento, "     ");
+	strcpy(clientes[num].email, "   ");
+	strcpy(clientes[num].cor, "    ");
+	strcpy(clientes[num].sexo, "     ");
+	clientes[num].telefone[0] = NULL;
+	clientes[num].endereco.CEP[0] = NULL;
+	strcpy(clientes[num].endereco.logradouro, "     ");
+	clientes[num].endereco.numero = NULL;
+	strcpy(clientes[num].endereco.bairro, "      ");
+	strcpy(clientes[num].endereco.cidade, "   ");
+	strcpy(clientes[num].endereco.UF, "   ");
+	
+	fprintf(arquivo, "\t\t==- NOME: %s\n", clientes[num].nome);
+    fprintf(arquivo, "\t\t==- CPF: %s\n", clientes[num].CPF);
+    fprintf(arquivo, "\t\t==- IDADE: %d\n", clientes[num].idade);
+    fprintf(arquivo, "\t\t==- DATA DE NACSIMENTO: %s\n", clientes[num].datadenascimento);
+    fprintf(arquivo, "\t\t==- EMAIL: %s\n", clientes[num].email);
+    fprintf(arquivo, "\t\t==- RAÇA: %s\n", clientes[num].cor);
+    fprintf(arquivo, "\t\t==- SEXO: %s\n", clientes[num].sexo);
+    fprintf(arquivo, "\t\t==- TELEFONE: %d\n", clientes[num].telefone);
+    fprintf(arquivo, "\t\t==- CEP: %d\n", clientes[num].endereco.CEP);
+    fprintf(arquivo, "\t\t==- LOGRADOURO: %s\n", clientes[num].endereco.logradouro);
+    fprintf(arquivo, "\t\t==- NÚMERO: %d\n", clientes[num].endereco.numero);
+    fprintf(arquivo, "\t\t==- BAIRRO: %s\n", clientes[num].endereco.bairro);
+    fprintf(arquivo, "\t\t==- CIDADE: %s\n", clientes[num].endereco.cidade);
+    fprintf(arquivo, "\t\t==- UF: %s\n", clientes[num].endereco.UF);
+    fprintf(arquivo, "=========================================================================\n");
+	
+	printf("\n\n\n\n\033[1;33m\t\t\t==========- CLIENTE DELETADO COM SUCESSO -=========\n\n\n\n\n\n\033[0m\n");
+	
+	system("pause");
+	system("cls");
+	menu();
+}
 
 
